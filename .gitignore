@@ -1,4 +1,3 @@
 myanalyzer/frontend/node_modules/
-myanalyzer/assets/*
 *.log
 myanalyzer/__pycache__/
