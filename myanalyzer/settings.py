@@ -122,7 +122,7 @@ USE_L10N = True
 USE_TZ = True
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "myanalyzer/frontend/build"),
+    os.path.join(BASE_DIR, "myanalyzer/frontend/assets"),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, "myanalyzer/assets")
