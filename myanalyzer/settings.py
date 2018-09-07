@@ -124,7 +124,9 @@ USE_TZ = True
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "myanalyzer/assets"),
 ]
-print(BASE_DIR)
+files = os.listdir(BASE_DIR)
+for name in files:
+    print(name)
 STATIC_ROOT = os.path.join(BASE_DIR, "assets")
 
 WEBPACK_LOADER = {
