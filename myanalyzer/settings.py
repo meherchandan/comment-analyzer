@@ -27,7 +27,7 @@ DEBUG = False
 
 # ALLOWED_HOSTS = []
 
-ALLOWED_HOSTS = ['react-django.herokuapp.com', '127.0.0.1:8000']
+ALLOWED_HOSTS = ['comment-analyzer.herokuapp.com', '127.0.0.1:8000']
 
 # Application definition
 
