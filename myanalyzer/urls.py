@@ -20,9 +20,9 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^hello/$', hello),
-    url(r'^datetime/plus/(\d{1,2})/$', hours_ahead),
-    url(r'^datetime/$', current_datetime),
+    url(r'^hello$', hello),
+    url(r'^datetime/plus/(\d{1,2})$', hours_ahead),
+    url(r'^datetime$', current_datetime),
     url(r'^analyzedata$',checkposneg),
     url(r'^', TemplateView.as_view(template_name="index.html")),
 ]
