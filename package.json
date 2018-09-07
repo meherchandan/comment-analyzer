@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "postinstall": "cd myanalyzer/frontend  && npm install"
+    "postinstall": "cd myanalyzer/frontend  && npm install && npm run build"
   },
   "engines": {
     "node":"6.11.2",
