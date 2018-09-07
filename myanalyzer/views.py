@@ -49,7 +49,7 @@ def checkposneg(request):
         return HttpResponse(classifier.classify(words))
     except:
         import sys
-        print str(sys.exc_info())
+        print(str(sys.exc_info()))
         return "Internal Server Error"
 
     
