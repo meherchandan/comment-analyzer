@@ -23,11 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'yn%8atd^wp39p!(vyjf8j)yb7k!v083gny^*d1pp66^@1e9a0&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = False
-ALLOWED_HOSTS = []
+# DEBUG = True
+DEBUG = False
+# ALLOWED_HOSTS = []
 
-# ALLOWED_HOSTS = ['comment-analyzer.herokuapp.com', '127.0.0.1:8000']
+ALLOWED_HOSTS = ['comment-analyzer.herokuapp.com', '127.0.0.1:8000']
 
 # Application definition
 
@@ -122,10 +122,11 @@ USE_L10N = True
 USE_TZ = True
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "assets"),
+    os.path.join(BASE_DIR, "myanalyzer/frontend/assets"),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, "myanalyzer/assets")
+
 files = os.listdir(os.path.join(BASE_DIR, "myanalyzer/assets"))
 for name in files:
     print(name)
