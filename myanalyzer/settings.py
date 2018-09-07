@@ -121,9 +121,9 @@ USE_L10N = True
 USE_TZ = True
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "myanalyzer/assets"),
+    os.path.join(BASE_DIR, "myanalyzer"),
 ]
-# STATIC_ROOT = os.path.join(BASE_DIR, "myanalyzer/assets")
+STATIC_ROOT = os.path.join(BASE_DIR, "myanalyzer/assets")
 
 WEBPACK_LOADER = {
     'DEFAULT': {
