@@ -1,5 +1,9 @@
 {
   "scripts": {
-    "postinstall": "cd frontend  && npm install"
+    "postinstall": "cd myanalyzer/frontend  && npm install"
+  },
+  "engines": {
+    "node":"6.11.2",
+    "npm":"3.10.10"
   }
 }
