@@ -127,9 +127,6 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(BASE_DIR, "myanalyzer/assets")
 
-files = os.listdir(os.path.join(BASE_DIR, "myanalyzer/assets"))
-for name in files:
-    print(name)
 WEBPACK_LOADER = {
     'DEFAULT': {
             'BUNDLE_DIR_NAME': 'bundles/',

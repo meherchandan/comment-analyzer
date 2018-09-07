@@ -39,12 +39,20 @@ classifier = NaiveBayesClassifier.train(train_set)
 accuracy = nltk.classify.util.accuracy(classifier, test_set)
 print(accuracy * 100)
 def checkposneg(request):
-    json_data = json.loads(request.body)
-    comment = json_data['data']
-    words = word_tokenize(comment)
-    words = create_word_features(words)
-    print(classifier.classify(words))
-    return HttpResponse(classifier.classify(words))
+    try:
+        print("request received")
+        json_data = json.loads(request.body)
+        comment = json_data['data']
+        words = word_tokenize(comment)
+        words = create_word_features(words)
+        print(classifier.classify(words))
+        return HttpResponse(classifier.classify(words))
+    except:
+        import sys
+        print str(sys.exc_info())
+        return "Internal Server Error"
+
+    
 
 def hello(request):
     return HttpResponse("Hello world")
