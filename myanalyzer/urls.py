@@ -24,6 +24,12 @@ from nltk.corpus import movie_reviews
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from django.http import HttpResponse
+
+def create_word_features(words):
+    useful_words = [word for word in words if word not in stopwords.words("english")]
+    my_dict = dict([(word, True) for word in useful_words])
+    return my_dict
+    
 neg_reviews = []
 i = 0
 for fileid in movie_reviews.fileids('neg'):
