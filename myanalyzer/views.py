@@ -47,6 +47,9 @@ def checkposneg(request):
         json_data = json.loads(request.body)
         comment = json_data['data']
         words = word_tokenize(comment)
+        print("word length",len(words))
+        if(len(words)<15):
+           return HttpResponse("Comment is too short. Unable to analyze.") 
         words = create_word_features(words)
         print(classifier.classify(words))
         return HttpResponse(classifier.classify(words))
