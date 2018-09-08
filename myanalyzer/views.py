@@ -12,6 +12,7 @@ def create_word_features(words):
     my_dict = dict([(word, True) for word in useful_words])
     return my_dict
 
+print("views.py is running")
 neg_reviews = []
 i = 0
 for fileid in movie_reviews.fileids('neg'):

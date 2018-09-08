@@ -18,6 +18,8 @@ from django.conf.urls import url
 from myanalyzer.views import hello, current_datetime,hours_ahead,checkposneg
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
+
+print("URL class")
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^hello$', hello),
