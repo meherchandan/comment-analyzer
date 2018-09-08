@@ -23,7 +23,7 @@ for fileid in movie_reviews.fileids('pos'):
     words = movie_reviews.words(fileid)
     pos_reviews.append((create_word_features(words), "Positive"))
      
-
+print(len(pos_reviews))
 train_set = neg_reviews[:800] + pos_reviews[:800]
 test_set =  neg_reviews[800:] + pos_reviews[800:]
 print(len(train_set),  len(test_set))
