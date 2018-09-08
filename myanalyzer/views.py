@@ -21,7 +21,7 @@ for fileid in movie_reviews.fileids('neg'):
     words = movie_reviews.words(fileid)
     neg_reviews.append((create_word_features(words), "Negative"))
   
-print(len(neg_reviews))
+print("Negative",len(neg_reviews))
 pos_reviews = []
 i =0
 for fileid in movie_reviews.fileids('pos'):
@@ -31,7 +31,7 @@ for fileid in movie_reviews.fileids('pos'):
     words = movie_reviews.words(fileid)
     pos_reviews.append((create_word_features(words), "Positive"))
      
-print(len(pos_reviews))
+print("positive",len(pos_reviews))
 train_set = neg_reviews[:80] + pos_reviews[:80]
 test_set =  neg_reviews[80:] + pos_reviews[80:]
 print(len(train_set),  len(test_set))
