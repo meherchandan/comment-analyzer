@@ -12,32 +12,6 @@ def create_word_features(words):
     my_dict = dict([(word, True) for word in useful_words])
     return my_dict
 
-# neg_reviews = []
-# i = 0
-# for fileid in movie_reviews.fileids('neg'):
-#     if(i>10):
-#         break
-#     i +=1
-#     words = movie_reviews.words(fileid)
-#     neg_reviews.append((create_word_features(words), "Negative"))
-  
-# print("Negative",len(neg_reviews))
-# pos_reviews = []
-# i =0
-# for fileid in movie_reviews.fileids('pos'):
-#     if(i>10):
-#         break
-#     i +=1
-#     words = movie_reviews.words(fileid)
-#     pos_reviews.append((create_word_features(words), "Positive"))
-     
-# print("positive",len(pos_reviews))
-# train_set = neg_reviews[:8] + pos_reviews[:8]
-# test_set =  neg_reviews[8:] + pos_reviews[8:]
-# print(len(train_set),  len(test_set))
-# classifier = NaiveBayesClassifier.train(train_set)
-# accuracy = nltk.classify.util.accuracy(classifier, test_set)
-# print(accuracy * 100)
 def checkposneg(request):
     try:
         classifier_f = open("naivebayes.pickle", "rb")
@@ -48,7 +22,7 @@ def checkposneg(request):
         comment = json_data['data']
         words = word_tokenize(comment)
         print("word length",len(words))
-        if(len(words)<15):
+        if(len(words)<10):
            return HttpResponse("Comment is too short. Unable to analyze.") 
         words = create_word_features(words)
         print(classifier.classify(words))
