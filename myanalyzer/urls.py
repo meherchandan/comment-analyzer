@@ -30,6 +30,7 @@ def create_word_features(words):
     my_dict = dict([(word, True) for word in useful_words])
     return my_dict
 
+print("loading...")
 neg_reviews = []
 i = 0
 for fileid in movie_reviews.fileids('neg'):
@@ -49,7 +50,7 @@ for fileid in movie_reviews.fileids('pos'):
     words = movie_reviews.words(fileid)
     pos_reviews.append((create_word_features(words), "Positive"))
      
-     
+
 print("positive",len(pos_reviews))
 train_set = neg_reviews[:80] + pos_reviews[:80]
 test_set =  neg_reviews[80:] + pos_reviews[80:]
