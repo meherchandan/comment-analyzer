@@ -6,7 +6,7 @@ from nltk.corpus import movie_reviews
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from django.http import HttpResponse
-
+import pickle
 def create_word_features(words):
     useful_words = [word for word in words if word not in stopwords.words("english")]
     my_dict = dict([(word, True) for word in useful_words])
@@ -38,8 +38,11 @@ def create_word_features(words):
 # classifier = NaiveBayesClassifier.train(train_set)
 # accuracy = nltk.classify.util.accuracy(classifier, test_set)
 # print(accuracy * 100)
-def checkposneg(request,classifier):
+def checkposneg(request):
     try:
+        classifier_f = open("naivebayes.pickle", "rb")
+        classifier = pickle.load(classifier_f)
+        classifier_f.close()
         print("request received")
         json_data = json.loads(request.body)
         comment = json_data['data']
