@@ -18,12 +18,44 @@ from django.conf.urls import url
 from myanalyzer.views import hello, current_datetime,hours_ahead,checkposneg
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
+import nltk.classify.util
+from nltk.classify import NaiveBayesClassifier
+from nltk.corpus import movie_reviews
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from django.http import HttpResponse
+neg_reviews = []
+i = 0
+for fileid in movie_reviews.fileids('neg'):
+    if(i>10):
+        break
+    i +=1
+    words = movie_reviews.words(fileid)
+    neg_reviews.append((create_word_features(words), "Negative"))
+  
+print("Negative",len(neg_reviews))
+pos_reviews = []
+i =0
+for fileid in movie_reviews.fileids('pos'):
+    if(i>10):
+        break
+    i +=1
+    words = movie_reviews.words(fileid)
+    pos_reviews.append((create_word_features(words), "Positive"))
+     
+print("positive",len(pos_reviews))
+train_set = neg_reviews[:8] + pos_reviews[:8]
+test_set =  neg_reviews[8:] + pos_reviews[8:]
+print(len(train_set),  len(test_set))
+classifier = NaiveBayesClassifier.train(train_set)
+accuracy = nltk.classify.util.accuracy(classifier, test_set)
+print(accuracy * 100)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^hello$', hello),
     url(r'^datetime/plus/(\d{1,2})$', hours_ahead),
     url(r'^datetime$', current_datetime),
-    url(r'^analyzedata$',checkposneg),
+    url(r'^analyzedata$',checkposneg,{'classifier':classifier}),
     url(r'^', TemplateView.as_view(template_name="index.html")),
 ]
