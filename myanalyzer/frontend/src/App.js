@@ -45,8 +45,9 @@ class App extends Component {
     let result = this.state.result === "" ? '':<span>Result: <span className={resultClass}>{this.state.result}</span></span>;
     return (
       <div className="App">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"></link>
         <header className="App-header">
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"></link>
+          
           <h1 className="App-title">Welcome to Comment Analyzer</h1>
         </header>
        
