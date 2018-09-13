@@ -25,6 +25,13 @@ const TextFieldComponent =({handleChange,data})=>{
           <div style={styles.textfield}>
             <TextField
                 id="name"
+               
+                InputProps={
+                  {
+                    style:{
+                      minWidth: '100px'}
+                  }
+                }
                 fullWidth={true}
                 label="Enter Your Comment"
                 multiline={true}
